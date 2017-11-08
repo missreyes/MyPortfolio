@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shari's Portfolio</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="defaultpink.css" rel="stylesheet" type="text/css" media="all" />
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+</head>
+<body>
+<div id="header" class="container">
+	<div id="logo">
+		<h1><a href="index.html"><i>Shari's Portfolio</I></a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="websites.html" accesskey="1" title="">Websites</a></li>
+			<li><a href="pagelayout.html" accesskey="2" title="">Page Layout</a></li>
+			<li><a href="misc.html" accesskey="3" title="">Miscelaneous</a></li>
+			<li><a href="photos.html" accesskey="4" title="">Photos</a></li>
+		</ul>
+	</div>
+</div>
+<div id="wrapper" class="container">
+
+	<div id="page">
+	<div id="content">
+<!------------------------------------------------------->
+<!-- BEGINNING OF THE CODE FOR THE CAROUSEL-SLIDESHOW -->
+<!------------------------------------------------------->
+
+<!-- START OF STYLE-CONFIGURATION ZONE  -->
+<style>
+.textstyle {
+position:absolute;
+visibility:visible;
+border-style:solid;
+border-width:2px;
+border-color:#EEEEEE;
+font-family:Arial;
+font-size:8pt;
+color:#FFFFFF;
+text-align:center;
+background-color:#CCCCCC;
+top:-1000px;
+}
+</style>
+<!-- END OF STYLE-CONFIGURATION ZONE  -->
+<center>
+<script>
+// CREDITS:
+// Carousel Slideshow with transparency and zoom effect
+// By Peter Gehrig
+// Copyright (c) 2010 Peter Gehrig. All rights reserved.
+// Permission given to use the script provided that this notice remains as is.
+// Additional scripts can be found at http://www.fabulant.com
+
+// IMPORTANT:
+// If you add this script to a script-library or script-archive
+// you have to add a highly visible link to
+// http://www.fabulant.com on the webpage
+// where this script will be featured
+
+var rotatingimage=new Array();
+var rotatingtext=new Array();
+var rotatinglink=new Array();
+
+///////////////////////////////////////////////////////////////////////////////////////
+// START OF SCRIPT-CONFIGURATION ZONE
+//////////////////////////////////////////////////////////////////////////////////////
+
+// Set the path and name (or URL) of your images. Add as many images as you like
+// Take care that the images have a decent resolution as they are used for the zoom-images as well
+rotatingimage[0]="images/img01.jpg"
+rotatingimage[1]="images/img02.jpg"
+rotatingimage[2]="images/img03.jpg"
+rotatingimage[3]="images/img04.jpg"
+rotatingimage[4]="images/img05.jpg"
+rotatingimage[5]="images/img06.jpg"
+rotatingimage[6]="images/img07.jpg"
+rotatingimage[7]="images/img08.jpg"
+rotatingimage[8]="images/img09.jpg"
+rotatingimage[9]="images/img10.jpg"
+
+// Set the the comments corresponding to the images above (requires the same amount as images!)
+rotatingtext[0]="The Duomo - Florence, Italy"
+rotatingtext[1]="The Canals - Venice, Italy"
+rotatingtext[2]="Cinque Terra - Monteroso, Italy"
+rotatingtext[3]="Christopher Comubus - St. Margherita, Italy"
+rotatingtext[4]="Portofino, Italy"
+rotatingtext[5]="The Coloseum - Rome, Italy"
+rotatingtext[6]="Carmel Beach - Carmel, CA"
+rotatingtext[7]="Sunset - Tulare, CA"
+rotatingtext[8]="Lake - Yosemite, CA"
+rotatingtext[9]="Fireworks - San Diego, CA"
+
+// Set the the comments corresoponding to the images above (requires the same amount as images!)
+// Set "#" if no link is required
+rotatinglink[0]="images/img01.jpg"
+rotatinglink[1]="images/img02.jpg"
+rotatinglink[2]="images/img03.jpg"
+rotatinglink[3]="images/img04.jpg"
+rotatinglink[4]="images/img05.jpg"
+rotatinglink[5]="images/img06.jpg"
+rotatinglink[6]="images/img07.jpg"
+rotatinglink[7]="images/img08.jpg"
+rotatinglink[8]="images/img09.jpg"
+rotatinglink[9]="images/img10.jpg"
+
+// Set the width of the circle (pixels)
+var circlewidth=420
+
+// Set the height of the circle (pixels)
+var circleheight=240
+
+// Set the width of your small rotating images (pixels)
+var imgwidth=150
+
+// Set the height of your small rotating images (pixels)
+var imgheight=90
+
+// Set the height of your textbox (pixels). This is the textbox (comment) below the rotating images
+var textboxheight=17
+
+// Set the path and name (or URL) of your backgroundimage
+// Write "var bgimg=false" if you don't want to add a backgroundimage
+var bgimg="images/DSCN6166.jpg"
+
+// Set the number of words that will be displayed at once
+var displaymax=7
+
+// Set the speed! Tha values may range from 0.1 to 1.0
+var step=0.02;
+
+// Set the zoomfactor for the big picture that appears on mouseover
+var zoomfactor=2;
+
+// padding to the margin
+var imgpadding=10
+
+/////////////////////////////////////////////////////////////////////////////////////
+// END OF SCRIPT-CONFIGURATION ZONE
+// Do not edit below this line
+////////////////////////////////////////////////////////////////////////////////////
+
+var maxopacity=new Array()
+var i_imgcounter=0
+var segment=360/(displaymax);
+var decrement=0;
+var op
+var tmr
+var opacitystep=Math.round(100/circleinnerheight)
+var zoomobj
+var twidth
+var theight
+var windowwidth
+var windowheight
+var circleinnerwidth=circlewidth-(imgwidth+2*imgpadding)
+var circleinnerheight=circleheight-(imgheight+2*imgpadding)
+circleinnerwidth=circleinnerwidth/2
+circleinnerheight=circleinnerheight/2
+
+var ns4=document.layers?1:0
+var ns6=document.getElementById&&!document.all?1:0
+var ie=document.all?1:0
+
+var preloadedimages=new Array()
+for (i=0;i<rotatingimage.length;i++){
+	preloadedimages[i]=new Image()
+	preloadedimages[i].src=rotatingimage[i]
+}
+
+for (i=0;i<displaymax;i++) {
+	maxopacity[i]=1
+}
+
+function getpagesize() {
+	windowwidth=parseInt(document.body.clientWidth)
+	windowheight=parseInt(document.body.clientHeight)
+	twidth=Math.floor(circleinnerwidth)
+	theight=Math.floor(circleinnerheight)
+	i_imgcounter=0
+
+	for (i=0; i<displaymax; i++) {
+		var thisspan=eval("document.getElementById('span"+i+"').style")
+		thisspan.left=(twidth*Math.sin(decrement+i*segment*Math.PI/180)+circleinnerwidth+imgpadding)+"px";
+		thisspan.top=(theight*Math.cos(decrement+i*segment*Math.PI/180)+circleinnerheight+imgpadding)+"px";
+		thisspan.zIndex=parseInt(thisspan.top)
+
+		op=parseInt(100/circleinnerheight*(parseInt(thisspan.top)*0.5))
+		document.getElementById('span'+i).innerHTML="<a href='"+rotatinglink[i_imgcounter]+"'><img border=0 width="+imgwidth+" src='"+rotatingimage[i_imgcounter]+"' id='im"+i_imgcounter+"' onMouseover='stoprotating(this)' onMouseout='restartrotating()'></a><br>"+rotatingtext[i_imgcounter]
+	document.getElementById('span'+i).style.visibility="visible"
+			maxopacity[i]=-1
+			i_imgcounter++
+		if (i_imgcounter>=rotatingimage.length) {
+			i_imgcounter=0
+		}
+	}
+
+	rotatetext()
+}
+
+function rotatetext() {
+	for (i=0; i<displaymax; i++) {
+		var thisspan=eval("document.getElementById('span"+i+"').style")
+		thisspan.left=(twidth*Math.sin(decrement+i*segment*Math.PI/180)+circleinnerwidth+imgpadding)+"px";
+		thisspan.top=(theight*Math.cos(decrement+i*segment*Math.PI/180)+circleinnerheight+imgpadding)+"px";
+		thisspan.zIndex=parseInt(thisspan.top)
+
+		op=parseInt((100/circleinnerheight*(parseInt(thisspan.top)*0.5))-imgpadding)
+
+		if (op<5 && maxopacity[i]==1) {
+			if (i_imgcounter>=rotatingimage.length) {
+				i_imgcounter=0
+			}
+			document.getElementById('span'+i).innerHTML="<a href='"+rotatinglink[i_imgcounter]+"'><img border=0 width="+imgwidth+" src='"+rotatingimage[i_imgcounter]+"' id='im"+i_imgcounter+"' onMouseover='stoprotating(this)' onMouseout='restartrotating()'></a><br>"+rotatingtext[i_imgcounter]
+	document.getElementById('span'+i).style.visibility="visible"
+			maxopacity[i]=-1
+			i_imgcounter++
+		}
+		if (op>90) {
+			maxopacity[i]=1
+		}
+
+		if (ie) {
+			var thisfilter=eval("document.getElementById('span"+i+"')")
+			thisfilter.filters.alpha.opacity=op
+		}
+		else {
+			var thisfilter=eval("document.getElementById('span"+i+"').style")
+			thisspan.opacity=op/100
+		}
+	}
+	decrement-=step;
+	tmr=setTimeout('rotatetext()', 50);
+}
+
+function stoprotating(thisobj) {
+	clearTimeout(tmr)
+	zoomobj=thisobj
+	document.getElementById(zoomobj.id).style.width=(zoomfactor*imgwidth)+"px"
+	document.getElementById(zoomobj.parentNode.parentNode.id).style.width=(zoomfactor*imgwidth)+"px"
+	zoomobj.parentNode.parentNode.style.zIndex=9999
+	if (ie) {
+		zoomobj.parentNode.parentNode.filters.alpha.opacity=100
+	}
+	else {
+		zoomobj.parentNode.parentNode.style.opacity=1
+	}
+}
+
+function restartrotating() {
+	document.getElementById(zoomobj.id).style.width=imgwidth+"px"
+	document.getElementById(zoomobj.parentNode.parentNode.id).style.width=imgwidth+"px"
+	rotatetext()
+}
+
+
+document.write('<div id="roof" style="position:relative;width:'+circlewidth+'px;height:'+(circleheight+textboxheight)+'px;">')
+if (bgimg) {
+	document.write('<img src="'+bgimg+'" width="'+circlewidth+'" height="'+(circleheight+textboxheight)+'">')
+}
+for (i=0;i<displaymax;i++) {
+	document.write("<div id='span"+i+"' class='textstyle' style='filter:alpha(opacity=80);opacity:0.8;width:"+imgwidth+"px;visibility:hidden'></div>");
+	i_imgcounter++
+	if (i_imgcounter>=rotatingimage.length) {
+		i_imgcounter=0
+	}
+}
+document.write('</div>');
+window.onload=getpagesize;
+</script>
+</center>
+<!------------------------------------------------------->
+<!-- END OF THE CODE FOR THE CAROUSEL-SLIDESHOW -->
+<!------------------------------------------------------->
+<br><br><br><br><br><br><br>
+
+<!--<div id="page">
+ -->
+ <!--<div id="content"> <a href="#" class="image-style"><img src="#" width="600" height="50" /></a>
+ -->
+ <h2>Worth A Thousand Words...</h2>
+					<p>They say that <strong><i>"A picture is worth a thousand words"</i></strong> and I've love taking pictures since I was a teen. Most of my photography consists of landscapes, famous cities to be exact, but I've taken a few really good portraits as well so  roll the mouse over one of the pictures above to see a zoomed version</p>
+<!--Resume opens is a seperate window on mouse click-->
+		<a href="pdfs/SRResume1017.pdf" target="blank" class="link-style1">Shari's Resume</a></div>
+		<div id="sidebar">
+			<div id="sbox1">
+				<h2>Hire Me...</h2>
+				<ul class="list-style1">
+					<li class="first">
+						<h3>LinkedIn</h3>
+						<p><a href="https://www.linkedin.com/in/shari-r-4934545/" target="blank">Get my current resume here.</a></p>
+					</li>
+					<li>
+<div id="social-icons">
+<a href="http://www.facebook.com/" target="blank"><img src="cache/FACEBOOK.png" width="48" height="48" alt="Facebook" /></a>
+<a href="https://twitter.com/" target="blank"><img src="cache/TWITTER.png" width="48" height="48" alt="Twitter" /></a>
+</div>
+					</li>
+				</ul>
+			</div>
+			<div id="sbox2">
+				<h2>Favorite Links</h2>
+					<ul class="list-style2">
+						<li class="first"><a href="http://www.zynga.com" target="blank">Online Games</a></li>
+						<li><a href="http://www.bayarearidersforum.com/forums/" target="blank">Motorcycle Forum</a></li>
+						<li><a href="https://www.facebook.com/" target="blank">You Don't See Me on FB</a></li>
+						<li><a href="https://twitter.com/" target="blank">Don't Be a Twit</a></li>
+						<li><a href="http://www.seriously-maybe.com/" target="blank">Not the Time to Write</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Shari Reyes. All rights reserved. Design by Shari Reyes. Photos by Shari Reyes.
+</div>
+</body>
+</html>

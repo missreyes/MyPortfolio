@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Shari's Portfolio</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href="defaultpink.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+<!--[if IE 6]>
+<link href="default_ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+<script Language="Javascript">
+$(function() {
+// TODO refactor into a widget and get rid of these plugin methods
+$.fn.left = function( using ) {
+return this.position({
+my: "right middle",
+at: "left+25 middle",
+of: "#bannercontent",
+collision: "none",
+using: using
+});
+};
+$.fn.right = function( using ) {
+return this.position({
+my: "left middle",
+at: "right-25 middle",
+of: "#bannercontent",
+collision: "none",
+using: using
+});
+};
+$.fn.center = function( using ) {
+return this.position({
+my: "center middle",
+at: "center middle",
+of: "#bannercontent",
+using: using
+});
+};
+$( "img:eq(0)" ).left();
+$( "img:eq(1)" ).center();
+$( "img:eq(2)" ).right();
+function animate( to ) {
+$( this ).stop( true, false ).animate( to );
+}
+function next( event ) {
+event.preventDefault();
+$( "img:eq(2)" ).center( animate );
+$( "img:eq(1)" ).left( animate )
+$( "img:eq(0)" ).right().appendTo( "#bannercontent" );
+}
+function previous( event ) {
+event.preventDefault();
+$( "img:eq(0)" ).center( animate );
+$( "img:eq(1)" ).right( animate );
+$( "img:eq(2)" ).left().prependTo( "#bannercontent" );
+}
+$( "#previous" ).click( previous );
+$( "#next" ).click( next );
+$( "img" ).click(function( event ) {
+$( "img" ).index( this ) === 0 ? previous( event ) : next( event );
+});
+$( window ).resize(function() {
+$( "img:eq(0)" ).left( animate );
+$( "img:eq(1)" ).center( animate );
+$( "img:eq(2)" ).right( animate );
+});
+});
+</script>
+</head>
+<body>
+<div id="header" class="container">
+	<div id="logo">
+		<h1><a href="index.html"><i>Shari Reyes' Portfolio</i></a></h1>
+	</div>
+	<div id="menu">
+		<ul>
+			<li><a href="websites.html" accesskey="1" title="">Websites</a></li>
+			<li><a href="pagelayout.html" accesskey="2" title="">Page Layout</a></li>
+			<li><a href="misc.html" accesskey="3" title="">Miscelaneous</a></li>
+			<li><a href="photos.html" accesskey="4" title="">Photos</a></li>
+		</ul>
+	</div>
+</div>
+<div id="wrapper" class="container">
+	<div id="page">
+<div id="content"> <a href="#" class="image-style"><img src="images/mewhat.jpg" width="600" height="250" alt="" /></a>
+
+<!-- 		<div id="bannercontent">
+			<img src="images/mewhat.jpg" width="600" height="250" alt="Me with Hat" class="bannerimg"/>
+			<img src="images/sitespic.jpg" width="600" height="250" alt="Website Pics" class="bannerimg"/>
+			<img src="images/BookPDFPic.jpg" width="600" height="250" alt="Interactive Book" class="bannerimg"/>
+ --><!-- <a id="previous" href="#">Previous</a>
+<a id="next" href="#">Next</a>-->
+<!--</div>-->
+
+		<h2>Welcome to My Portfolio</h2>
+				<p>This is the portfolio of <strong><i>Shari E. Reyes</i></strong>, a freelance designer in my spare time, I've put together this website to showcase some of my jobs and creations. All photos under the Photography tab were taken by me during my many travels. I hope you enjoy them as much as I enjoyed taking them.</p>
+				<p>Please take a look around and let me know if you'd like to work together by contacting me through one of the links to the right or click the button below to view my current resume.</p>
+<!--Resume opens is a seperate window on mouse click-->
+		<a href="pdfs/SRResume1017.pdf" target="blank" class="link-style1">Shari's Resume</a></div>
+		<div id="sidebar">
+			<div id="sbox1">
+				<h2>Hire Me...</h2>
+				<ul class="list-style1">
+					<li class="first">
+						<h3>LinkedIn</h3>
+						<p><a href="https://www.linkedin.com/in/shari-r-4934545/" target="blank">See my current resume here...</a></p>
+					</li>
+					<li>
+<div id="social-icons">
+<a href="http://www.facebook.com/" target="blank"><img src="cache/FACEBOOK.png" width="48" height="48" alt="Facebook" /></a>
+<a href="https://twitter.com/" target="blank"><img src="cache/TWITTER.png" width="48" height="48" alt="Twitter" /></a>
+					</li>
+ 					</li>
+				</ul>
+			</div>
+			<div id="sbox2">
+				<h2>Favorite Links</h2>
+					<ul class="list-style2">
+						<li class="first"><a href="http://www.zynga.com" target="blank">Online Games</a></li>
+						<li><a href="http://www.bayarearidersforum.com/forums/" target="blank">Motorcycle Forum</a></li>
+						<li><a href="https://www.facebook.com/" target="blank">You Don't See Me on FB</a></li>
+						<li><a href="https://twitter.com/" target="blank">Don't Be a Twit</a></li>
+						<li><a href="http://www.seriously-maybe.com/" target="blank">Not the Time to Write</a></li>
+					</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	<p>Copyright (c) 2013 Shari Reyes. All rights reserved. Design by Shari Reyes. Photos by Shari Reyes.
+</div>
+</body>
+</html>
