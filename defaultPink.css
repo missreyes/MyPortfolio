@@ -1,91 +1,75 @@
 
-html, body
-{
+html, body {
 	height: 100%;
 }
 
-body
-{
+body {
 	margin-top: 50px;
 	padding: 0px;
-	background-image:url('images/PortfolioBackground.jpg');
+	background-image:url('./images/PortfolioBackground.jpg');
 	font-family: 'Palatino Linotype', sans-serif;
 	font-size: 10pt;
 	color: #737373;
 }
 
-h1, h2, h3
-{
+h1, h2, h3 {
 	margin: 0;
 	padding: 0;
 	font-family: 'Palatino Linotype', sans-serif;
 	color: #74C5F2;
 }
 
-h2
-{
+h2 {
 	font-weight: 400;
 	font-size: 2.00em;
 	color: #8B2287;
 }
 
-p, ol, ul
-{
+p, ol, ul {
 	margin-top: 0px;
 }
 
-p
-{
+p {
 	line-height: 180%;
 }
 
-strong
-{
+strong {
 }
 
-a
-{
+a {
 	color: #8C2287;
 }
 
-a:hover
-{
+a:hover {
 	text-decoration: none;
 }
 
-a img
-{
+a img {
 	border: none;
 }
 
-img.border
-{
+img.border {
 }
 
-img.alignleft
-{
+img.alignleft {
 	float: left;
 }
 
-img.alignright
-{
+img.alignright {
 	float: right;
 }
 
-img.aligncenter
-{
+img.aligncenter {
 	margin: 0px auto;
 }
 
-hr
-{
+hr {
 	display: none;
 }
 
 /** WRAPPER */
 
-#wrapper
-{
+#wrapper {
 	margin: 0 auto;
 	overflow: hidden;
 	background: #FFFFFF;
@@ -93,21 +77,18 @@ hr
 	border-radius: 40px;
 }
 
-.container
-{
+.container {
 	width: 1000px;
 	margin: 0px auto;
 }
 
-.clearfix
-{
+.clearfix {
 	clear: both;
 }
 
 /** HEADER */
 
-#header
-{
+#header {
 	overflow: hidden;
 	width: 920px;
 	padding: 0px 40px;
@@ -115,8 +96,7 @@ hr
 
 /** LOGO */
 
-#logo
-{
+#logo {
 	Position: absolute;
 	top: 4em;
 	left: 10em;
@@ -125,12 +105,10 @@ hr
 	height: 55px;
 }
 
-#logo h1, #logo p
-{
+#logo h1, #logo p {
 }
 
-#logo h1 a
-{
+#logo h1 a {
 	line-height: 100px;
 	text-decoration: none;
 	font-size: 2em;
@@ -140,8 +118,7 @@ hr
 
 /** MENU */
 
-#menu
-{
+#menu {
 	float: right;
 	width: 650px;
 	height: 80px;
@@ -151,8 +128,7 @@ hr
 	border-radius: 20px 20px 0px 0px;
 }
 
-#menu ul
-{
+#menu ul {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
@@ -160,14 +136,12 @@ hr
 	text-align: center;
 }
 
-#menu li
-{
+#menu li {
 	display: inline-block;
 	padding: 0px 20px;
 }
 
-#menu a
-{
+#menu a {
 	display: block;
 	line-height: 80px;
 	text-decoration: none;
@@ -176,74 +150,63 @@ hr
 	color: #FFFFFF;
 }
 
-#menu a:hover
-{
+#menu a:hover {
 	text-decoration: underline;
 }
 
 /** PAGE */
 
-#page
-{
+#page {
 	overflow: hidden;
 	padding: 50px 40px;
 }
 
-#page h2
-{
+#page h2 {
 	padding-bottom: 20px;
 }
 
 /** CONTENT */
 
-#content
-{
+#content {
 	float: left;
 	width: 600px;
 }
 
 /** SIDEBAR */
 
-#sidebar
-{
+#sidebar {
 	float: right;
 	width: 280px;
 }
 
-#sidebar #sbox1
-{
+#sidebar #sbox1 {
 	margin-bottom: 30px;
 }
 
 /* Footer */
 
-#footer
-{
+#footer {
 	overflow: hidden;
 	padding: 30px 0px;
 	color: #C54F7F;
 }
 
-#footer p
-{
+#footer p {
 	text-align: center;
 }
 
-#footer a
-{
+#footer a {
 	color: #CE6790;
 }
 
-.image-style img
-{
+.image-style img {
 	margin-bottom: 2em;
 	border-radius: 30px;
 }
 
 /** LIST STYLE 1 */
 
-.list-style1
-{
+.list-style1 {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
@@ -251,63 +214,53 @@ hr
 	color: #555555;
 }
 
-.list-style1 li
-{
+.list-style1 li {
 	padding: 10px 0px 10px 0px;
 	border-top: 1px solid #D6D6D6;
 }
 
-.list-style1 a
-{
+.list-style1 a {
 	color: #555555;
 }
 
-.list-style1 h3
-{
+.list-style1 h3 {
 	padding: 10px 0px 5px 0px;
 	font-weight: 500;
 	color: #444444;
 }
 
-.list-style1 .posted
-{
+.list-style1 .posted {
 	padding: 0px 0px 0px 0px;
 }
 
-.list-style1 .first
-{
+.list-style1 .first {
 	border-top: 0px;
 	padding-top: 0px;
 }
 
 /** LIST STYLE 2 */
 
-.list-style2
-{
+.list-style2 {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
 }
 
-.list-style2 li
-{
+.list-style2 li {
 	padding: 10px 0px 20px 0px;
 	border-top: 1px solid #C9C9C9;
 }
 
-.list-style2 a
-{
+.list-style2 a {
 	color: #555555;
 }
 
-.list-style2 .first
-{
+.list-style2 .first {
 	padding-top: 0px;
 	border-top: 0px;
 }
 
-.link-style1
-{
+.link-style1 {
 	display: inline-block;
 	margin-top: 20px;
 	background: #8C2287;
@@ -321,25 +274,26 @@ hr
 
 .widgetText {
 
-font: 20px "Comic Sans";
-font-weight: bold;
-color: white;
-position: absolute;
-top: 30px;
-left: 30px;
+	font: 20px "Comic Sans";
+	font-weight: bold;
+	color: white;
+	position: absolute;
+	top: 30px;
+	left: 30px;
 }
 
 .bannercontent {
-overflow: hidden;
-position: relative;
-height: 250px;
-margin: 0 auto;
+	overflow: hidden;
+	position: relative;
+	height: 250px;
+	margin: 0 auto;
 	/*background: #FFFFFF;
 	box-shadow: 0px 0px 20px 5px rgba(0,0,0,.10);
 	border-radius: 40px;*/
 }
+
 .bannerimg {
-position: absolute;
-margin-bottom: 2em;
+	position: absolute;
+	margin-bottom: 2em;
 	border-radius: 30px;
 }
